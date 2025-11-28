@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Github } from 'lucide-react';
+import { api } from '../services/api';
 
 const Login = () => {
   const [loginEmail, setLoginEmail] = useState('');
@@ -38,7 +39,7 @@ const Login = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:3333/auth/register", {
+      const response = await api.post("/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
