@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Github } from 'lucide-react';
-import { api } from '../services/api';
+import  api  from '../services/api';
 
 const Login = () => {
   const [loginEmail, setLoginEmail] = useState('');
