@@ -40,29 +40,18 @@ const Login = () => {
 
     try {
       const response = await api.post("/auth/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: signupName,
-          email: signupEmail,
-          password: signupPassword,
-        }),
+        name: signupName,
+        email: signupEmail,
+        password: signupPassword,
       });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        alert(data.error || "Erro ao cadastrar");
-        return;
-      }
 
       alert("Cadastro realizado com sucesso!");
 
-      
       await login(signupEmail, signupPassword);
 
-    } catch (err) {
-      alert("Erro ao conectar ao servidor");
+    } catch (err: any) {
+      console.error(err);
+      alert(err.response?.data?.error || "Erro ao cadastrar");
     }
   };
 
